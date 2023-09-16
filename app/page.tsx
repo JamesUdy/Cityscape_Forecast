@@ -1,6 +1,11 @@
-export default function Home() {
+"use client";
+
+import Home from "./components/Home/Home";
+
+const page = () => {
   return (
-    <main className="min-h-screen">      
-    </main>
+    <Home />
   )
-}
+};
+
+export default page;
