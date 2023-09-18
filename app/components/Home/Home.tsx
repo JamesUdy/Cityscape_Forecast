@@ -14,7 +14,7 @@ const Home = () => {
 
   // console.log(process.env.REACT_APP_API_KEY);
 
-  const weatherURL = `http://api.weatherapi.com/v1/forecast.json?key=472f53b61fb9488594d34124231609&q=${locationData}&days=3&aqi=yes&alerts=yes`;
+  const weatherURL = `https://api.weatherapi.com/v1/forecast.json?key=472f53b61fb9488594d34124231609&q=${locationData}&days=3&aqi=yes&alerts=yes`;
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if(e.key === "Enter") {
