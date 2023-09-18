@@ -13,7 +13,7 @@ interface WeatherContentProps {
 const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, error}) => {
     if (Object.keys(weatherData).length === 0 && error === '') {
         return (
-          <section className='text-[#001F3F] mx-auto w-2/4 py-10 flex flex-col space-y-4 items-center'>
+          <section className='text-[#001F3F] mx-auto w-2/4 py-24 flex flex-col space-y-4 items-center'>
             <span className='text-xl font-semibold text-center'>🌆 Welcome to CityscapeForecast, your innovative weather hub! 🌤️</span>
             <p className='font-semibold text-sm text-center'>Experience cutting-edge weather updates and forecasts like never before. 🌐📱</p>
             <span className='font-semibold text-sm text-center'>Here's what we offer today:</span>

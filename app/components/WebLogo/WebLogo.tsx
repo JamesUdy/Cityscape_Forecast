@@ -6,10 +6,14 @@ import './WebLogo.css';
 
 import Link from 'next/link';
 
-const WebLogo = () => {
+const WebLogo: React.FC = () => {
+  const handleLogoClick = () => {
+    window.location.reload();
+  }
+
   return (
     <>
-        <Link href='#' className='flex items-center group space-x-2'>
+        <Link href='/' onClick={handleLogoClick} className='flex items-center group space-x-2'>
           <Logo />
           <span className='text-4xl text-[#001233] group-hover:text-[#012a4a] ease-in duration-300 website-name'>Cityscape Forecast</span>
         </Link>
