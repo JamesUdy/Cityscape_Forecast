@@ -41,16 +41,16 @@ const Home = () => {
     content = (
       <section className='text-[#001F3F] mx-auto w-2/4 py-10 flex flex-col space-y-4 items-center'>
           <span className='text-xl font-semibold'>🌆 Welcome to CityscapeForecast, your innovative weather hub! 🌤️</span>
-          <p className='font-normal text-sm'>Experience cutting-edge weather updates and forecasts like never before. 🌐📱</p>
-          <span className='font-normal text-sm'>Here's what we offer today:</span>
+          <p className='font-semibold text-sm'>Experience cutting-edge weather updates and forecasts like never before. 🌐📱</p>
+          <span className='font-semibold text-sm'>Here's what we offer today:</span>
           <Marquee loop={0} speed={50} className='flex h-12 p-2'>
             {features.map(feature => {
               return (
-                <span key={feature.id} className='mx-2 px-4 py-2 bg-[#a09a9a5f] rounded-md backdrop-blur-xl text-sm'>{feature.feat}</span>
+                <span key={feature.id} className='text-[#0a141f] mx-2 px-4 py-2 ring-1 ring-transparent ease-in duration-200 hover:ring-[#0a141f] font-semibold bg-[#1e5b976a] rounded-md backdrop-blur-xl text-sm'>{feature.feat}</span>
               )
             })}
           </Marquee>
-          <p className='font-normal text-sm'>Stay ahead of the weather with CityscapeForecast, where the cityscape meets your forecast needs! 🚀🌤️</p>
+          <p className='font-semibold text-sm'>Stay ahead of the weather with CityscapeForecast, where the cityscape meets your forecast needs! 🚀🌤️</p>
       </section>
     )  
   }
