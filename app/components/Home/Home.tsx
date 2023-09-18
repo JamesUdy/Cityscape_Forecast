@@ -3,16 +3,20 @@ import React, { useState } from 'react';
 import Logo from '../WebLogo/WebLogo';
 import SearchCity from '../SearchCity/SearchCity';
 
+import Marquee from "react-fast-marquee";
+
+import features from '@/app/constants/constants';
+
 const Home = () => {
   const [weatherData, setWeatherData] = useState({});
   const [locationData, setLocationData] = useState("");
   const [error, setError] = useState("");
 
-  const weatherAPIKey = process.env.REACT_APP_API_KEY;
+  // const weatherAPIKey = process.env.REACT_APP_API_KEY;
 
-  console.log(process.env.REACT_APP_API_KEY);
+  // console.log(process.env.REACT_APP_API_KEY);
 
-  const weatherURL = `http://api.weatherapi.com/v1/forecast.json?key=${weatherAPIKey}&q=${locationData}&days=3&aqi=yes&alerts=yes`;
+  const weatherURL = `http://api.weatherapi.com/v1/forecast.json?key=472f53b61fb9488594d34124231609&q=${locationData}&days=3&aqi=yes&alerts=yes`;
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if(e.key === "Enter") {
@@ -30,13 +34,32 @@ const Home = () => {
           setError("Requested city not found 💬")
         }
     }
+  };
+
+  let content;
+  if (Object.keys(weatherData).length === 0 && error === '') {
+    content = (
+      <section className='text-[#001F3F] mx-auto w-2/4 py-10 flex flex-col space-y-4 items-center'>
+          <span className='text-xl font-semibold'>🌆 Welcome to CityscapeForecast, your innovative weather hub! 🌤️</span>
+          <p className='font-normal text-sm'>Experience cutting-edge weather updates and forecasts like never before. 🌐📱</p>
+          <span className='font-normal text-sm'>Here's what we offer today:</span>
+          <Marquee loop={0} speed={50} className='flex h-12 p-2'>
+            {features.map(feature => {
+              return (
+                <span key={feature.id} className='mx-2 px-4 py-2 bg-[#a09a9a5f] rounded-md backdrop-blur-xl text-sm'>{feature.feat}</span>
+              )
+            })}
+          </Marquee>
+          <p className='font-normal text-sm'>Stay ahead of the weather with CityscapeForecast, where the cityscape meets your forecast needs! 🚀🌤️</p>
+      </section>
+    )  
   }
 
   return (
     <main className="bg-color h-screen px-10 py-6 flex flex-col space-y-8">
       <Logo />
       <SearchCity handleSearch={handleSearch} setLocationData={setLocationData} />
-      {weatherData.current ? <div>{weatherData.current.temp_c}</div> : null}
+      {content}
       {error && <div>{error}</div>}
     </main>
   )

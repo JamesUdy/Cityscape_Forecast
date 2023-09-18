@@ -11,7 +11,7 @@ const WebLogo = () => {
     <>
         <Link href='#' className='flex items-center group space-x-2'>
           <Logo />
-          <span className='text-4xl text-[#001233] group-hover:text-[#012a4a] ease-in duration-300'>Cityscape Forecast</span>
+          <span className='text-4xl text-[#001233] group-hover:text-[#012a4a] ease-in duration-300 website-name'>Cityscape Forecast</span>
         </Link>
     </>
   )
