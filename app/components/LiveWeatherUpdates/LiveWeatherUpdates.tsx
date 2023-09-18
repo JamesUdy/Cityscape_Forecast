@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import getCurrentDate from '@/app/utils/currentDate';
 
@@ -24,30 +24,34 @@ interface LiveWeatherUpdatesProps {
 const LiveWeatherUpdates: React.FC<LiveWeatherUpdatesProps> = ({weatherData}) => {
   const currentDate = getCurrentDate();
   const weatherIcon = weatherData.current ? weatherData.current.condition.icon : null;
+  const [isCelsius, setIsCelsius] = useState(true);
+
+  const toggleUnit = () => {
+    setIsCelsius(!isCelsius);
+  }
 
   return (
-    <section className='flex flex-col gap-2'>
-      <div>
-        <div className='text-[#001F3F]'>
-          <span>Today</span>
-          <p>{currentDate}</p>
-          <div>
-            {weatherIcon && weatherData.current && (
-              <div>
-                <img src={weatherIcon} alt={weatherData.current.condition.text} />
+    <section className='flex flex-col font-mono space-y-4 px-4 py-6 bg-[#001f3feb] items-center text-slate-50 shadow-xl shadow-[#001f3ff2] rounded-xl w-64 mb-10'>
+        <div className='w-full flex flex-col space-y-4'>
+          <div className='flex flex-col space-y-1'>
+            <span>Today</span>
+            <p className='text-xs'>{currentDate}</p>
+          </div>
+          {weatherIcon && weatherData.current && (
+              <div className='w-full'>
+                <img loading='lazy' src={weatherIcon} alt={weatherData.current.condition.text} className='mx-auto' />
               </div>
             )}
-          </div>
         </div>
-      </div>
       {weatherData.current ? (
-        <div>
-          <p>{weatherData.current.temp_c.toFixed()}°C</p>
+        <div className='flex flex-col items-center'>
+          <p>{isCelsius ? `${weatherData.current.temp_c.toFixed()}°C` : `${weatherData.current.temp_f.toFixed()}°F` }</p>
           <span>{weatherData.current.condition.text}</span>
+          <button onClick={toggleUnit} className='bg-slate-50 hover:bg-slate-300 text-[#001f3f] hover:text-slate-700 ring-2 ring-transparent hover:ring-[#244566] ease-in duration-200 px-4 py-1 my-2 rounded-md text-xs outline-none'>Toggle Unit</button>
         </div>
       ) : null}
       {weatherData.location ? (
-        <div>
+        <div className='flex items-center space-x-2 text-sm'>
           <Location />
           <span>{weatherData.location.name}, {weatherData.location.region}</span>
         </div>
