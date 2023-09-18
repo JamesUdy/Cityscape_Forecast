@@ -20,7 +20,7 @@ const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, error}) => 
             <Marquee loop={0} speed={50} className='flex h-12 p-2'>
                 {features.map(feature => {
                 return (
-                        <span key={feature.id} className='text-[#0a141f] mx-2 px-4 py-2 ring-1 ring-transparent ease-in duration-200 hover:ring-[#0a141f] font-semibold bg-[#1e5b976a] rounded-md backdrop-blur-xl text-sm text-center'>{feature.feat}</span>
+                        <span key={feature.id} className='text-white mx-2 px-4 py-2 ring-2 ring-transparent ease-in duration-200 hover:ring-[#3b72a5eb] font-medium bg-[#001f3feb] rounded-md backdrop-blur-xl text-sm text-center'>{feature.feat}</span>
                 )
                 })}
             </Marquee>
