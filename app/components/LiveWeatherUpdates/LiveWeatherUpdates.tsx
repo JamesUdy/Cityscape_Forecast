@@ -39,7 +39,7 @@ const LiveWeatherUpdates: React.FC<LiveWeatherUpdatesProps> = ({weatherData}) =>
           </div>
           {weatherIcon && weatherData.current && (
               <div className='w-full'>
-                <img loading='lazy' src={weatherIcon} alt={weatherData.current.condition.text} className='mx-auto' />
+                <img loading='lazy' src={weatherIcon} alt={weatherData.current.condition.text} className='mx-auto w-fit h-fit' />
               </div>
             )}
         </div>
