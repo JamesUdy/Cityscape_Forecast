@@ -31,7 +31,7 @@ const LiveWeatherUpdates: React.FC<LiveWeatherUpdatesProps> = ({weatherData}) =>
   }
 
   return (
-    <section className='flex flex-col font-mono space-y-4 px-4 py-6 bg-[#001f3feb] items-center text-slate-50 shadow-xl shadow-[#001f3ff2] rounded-xl w-64 mb-10'>
+    <section className='flex flex-col font-mono space-y-4 px-4 py-6 bg-[#001f3feb] items-center text-slate-50 shadow-xl shadow-[#001f3ff2] rounded-xl w-64 mb-10 lg:mb-0'>
         <div className='w-full flex flex-col space-y-4'>
           <div className='flex flex-col space-y-1'>
             <span>Today</span>
