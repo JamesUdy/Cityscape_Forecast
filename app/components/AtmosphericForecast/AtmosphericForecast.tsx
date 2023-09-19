@@ -28,7 +28,6 @@ interface AtmosphericForecastProps {
 
 const AtmosphericForecast:React.FC<AtmosphericForecastProps> = ({weatherData}) => {
   const [unitStates, setUnitStates] = useState<boolean[]>(new Array(weatherData.forecast ? weatherData.forecast.forecastday.length : 0).fill(true));
-  let weekDay = "";
 
   const getWeekDay = (day: string) => {
       return getShortWeekDay({day});

@@ -41,7 +41,7 @@ const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, error}) => 
             <AtmosphericForecast weatherData={weatherData} />
           </div>
           <div>
-            <MeteorologicalData />
+            <MeteorologicalData weatherData={weatherData} />
           </div>
         </section>
       );
