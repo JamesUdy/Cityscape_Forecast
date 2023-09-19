@@ -9,7 +9,7 @@ main {
   font-family: 'Lora', serif;
 }
 
-.bg-color {
+body {
   background: rgb(255,218,185);
   background: radial-gradient(circle, rgba(255,218,185,1) 0%, rgba(176,224,230,1) 100%);
 }

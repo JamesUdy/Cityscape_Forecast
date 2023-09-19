@@ -19,7 +19,7 @@ interface LiveWeatherUpdatesProps {
       region: string;
     }
   }
-}
+};
 
 const LiveWeatherUpdates: React.FC<LiveWeatherUpdatesProps> = ({weatherData}) => {
   const currentDate = getCurrentDate();

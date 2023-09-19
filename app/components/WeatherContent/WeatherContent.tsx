@@ -36,9 +36,9 @@ const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, error}) => 
     } else {
       return (
         <section className='text-[#001F3F] mx-auto w-2/4 py-10 flex flex-col space-y-4 items-center'>
-          <div>
+          <div className='flex flex-col space-y-4 items-center'>
             <LiveWeatherUpdates weatherData={weatherData} />
-            <AtmosphericForecast />
+            <AtmosphericForecast weatherData={weatherData} />
           </div>
           <div>
             <MeteorologicalData />
