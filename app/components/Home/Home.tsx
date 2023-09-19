@@ -35,7 +35,7 @@ const Home = () => {
   };
   
   return (
-    <main className="px-10 py-6 flex flex-col space-y-8">
+    <main className="px-4 w360:px-10 py-6 flex flex-col space-y-8">
       <Logo />
       <SearchCity handleSearch={handleSearch} setLocationData={setLocationData} />
       <WeatherContent weatherData={weatherData} error={error} />
