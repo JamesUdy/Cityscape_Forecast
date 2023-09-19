@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import getShortWeekDay from '@/app/utils/shortWeekDay';
+
 interface DayForecast {
   date: string;
   day: {
@@ -26,6 +28,11 @@ interface AtmosphericForecastProps {
 
 const AtmosphericForecast:React.FC<AtmosphericForecastProps> = ({weatherData}) => {
   const [unitStates, setUnitStates] = useState<boolean[]>(new Array(weatherData.forecast ? weatherData.forecast.forecastday.length : 0).fill(true));
+  let weekDay = "";
+
+  const getWeekDay = (day: string) => {
+      return getShortWeekDay({day});
+  }
 
   const toggleUnit = (index: number) => {
     const newUnitStates = [...unitStates];
@@ -34,14 +41,17 @@ const AtmosphericForecast:React.FC<AtmosphericForecastProps> = ({weatherData}) =
   }
 
   return (
-    <section className='flex flex-col items-center py-10'>
-      <span>🚀 <span>3</span> - Day Weather Outlook</span>
-      <div className='flex flex-wrap gap-4'>
+    <section className='flex flex-col font-mono items-center py-10'>
+      <span className='text-slate-800 font-semibold text-lg'>🚀 <span className='text-orange-600 font-extrabold text-2xl'>3</span> - Day Weather Outlook</span>
+      <div className='flex flex-wrap items-center gap-4 my-8 text-slate-800'>
         {weatherData.forecast ? weatherData.forecast.forecastday.map((day, index) => {
+          const weekDay = getWeekDay(day.date);
           return (
-            <section key={index}>
-              <p>{new Date(day.date).toLocaleDateString("en-US", { weekday: "short" })}</p>
-              <img src={day.day.condition.icon} alt={day.day.condition.text} />
+            <section key={index} className='flex flex-col space-y-4 items-center bg-[#5669904a] ring-2 ring-transparent hover:ring-slate-300 px-4 pt-6 pb-4 rounded-xl'>
+              <p>{weekDay}</p>
+              <div>
+                <img src={day.day.condition.icon} alt={day.day.condition.text} />
+              </div>
               <div className='flex flex-col items-center'>
                 <p>{unitStates[index] ? `Max: ${day.day.maxtemp_c.toFixed()}°C / Min: ${day.day.mintemp_c.toFixed()}°C` : `Max: ${day.day.maxtemp_f.toFixed()}°F / Min: ${day.day.mintemp_f.toFixed()}°F`}</p>
                 <span>{day.day.condition.text}</span>
@@ -49,7 +59,7 @@ const AtmosphericForecast:React.FC<AtmosphericForecastProps> = ({weatherData}) =
               </div>
             </section>
           )
-        }) : null};
+        }) : null}
       </div>
     </section>
   )
