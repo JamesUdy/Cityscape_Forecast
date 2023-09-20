@@ -1,18 +1,19 @@
 import React from 'react';
 
 interface AirQualityIndexProps {
-airQualityData: {
-        co: number;
-        no2: number;
-        o3: number;
-        so2: number;
-        pm2_5: number;
-        pm10: number;
-        'us-epa-index': number;
-    };
+  airQualityData: {
+    co: number;
+    no2: number;
+    o3: number;
+    so2: number;
+    pm2_5: number;
+    pm10: number;
+    'us-epa-index': number;
+  };
+  aqiIndexData: number | null | undefined; 
 };
 
-const AirQualityIndex: React.FC<AirQualityIndexProps> = ({ airQualityData }) => {
+const AirQualityIndex: React.FC<AirQualityIndexProps> = ({ airQualityData, aqiIndexData }) => {
   return (
     <section className='bg-[#001f3feb] text-slate-50 px-4 py-6 rounded-md flex flex-col space-y-4 items-center'>
       <span className='font-semibold text-lg'>Air Quality Index 🌈🌎</span>
@@ -25,7 +26,11 @@ const AirQualityIndex: React.FC<AirQualityIndexProps> = ({ airQualityData }) => 
         <p>🌁 PM10: {airQualityData.pm10}</p>
         <p>🌎🌿 US EPA Index: {airQualityData['us-epa-index']}</p>
       </div>
-      <span>AQI: Good</span>
+      {aqiIndexData !== null && aqiIndexData !== undefined ? (
+        <span className='font-sans'>AQI: {aqiIndexData}</span>
+      ) : (
+        <span className='font-sans text-xs'>AQI: 🚫 Data Not Available</span>
+      )}
     </section>
   );
 };

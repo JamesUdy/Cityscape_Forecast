@@ -7,10 +7,11 @@ import LiveWeatherUpdates from '../LiveWeatherUpdates/LiveWeatherUpdates';
 
 interface WeatherContentProps {
     weatherData: Record<string, any>;
+    airQualityIndexData: number | null;
     error: string;
 }
 
-const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, error}) => {
+const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, airQualityIndexData, error}) => {
     if (Object.keys(weatherData).length === 0 && error === '') {
         return (
           <section className='text-[#001F3F] mx-auto w-full sm:w-2/3 lg:w-1/2 xl:w-2/4 pt-8 sm:py-24 flex flex-col space-y-4 items-center'>
@@ -41,7 +42,7 @@ const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, error}) => 
             <AtmosphericForecast weatherData={weatherData} />
           </div>
           <div>
-            <MeteorologicalData weatherData={weatherData} />
+            <MeteorologicalData weatherData={weatherData} AQIndex={airQualityIndexData} />
           </div>
         </section>
       );
