@@ -8,7 +8,7 @@ airQualityData: {
         so2: number;
         pm2_5: number;
         pm10: number;
-        us_epa_index: number;
+        'us-epa-index': number;
     };
 };
 
@@ -22,7 +22,7 @@ const AirQualityIndex: React.FC<AirQualityIndexProps> = ({ airQualityData }) => 
       <p>SO2: {airQualityData.so2}</p>
       <p>PM2.5: {airQualityData.pm2_5}</p>
       <p>PM10: {airQualityData.pm10}</p>
-      <p>US EPA Index: {airQualityData.us_epa_index}</p>
+      <p>US EPA Index: {airQualityData['us-epa-index']}</p>
     </section>
   );
 };

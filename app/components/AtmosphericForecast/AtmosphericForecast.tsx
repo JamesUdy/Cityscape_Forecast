@@ -58,7 +58,7 @@ const AtmosphericForecast:React.FC<AtmosphericForecastProps> = ({weatherData}) =
               <p className='text-xs font-medium'>
                 {unitStates[index] ? `Min: ${day.day.mintemp_c.toFixed()}°C ❄️` : `Min: ${day.day.mintemp_f.toFixed()}°F ❄️`}
               </p>
-              <span className='text-sm tracking-tighter pt-2'>{day.day.condition.text}</span>
+              <span className='text-sm tracking-tighter pt-2 w-32 sm:w-36 text-center'>{day.day.condition.text}</span>
               <button onClick={() => toggleUnit(index)} className='bg-slate-50 hover:bg-slate-200 text-[#001f3f] hover:text-slate-700 ring-2 ring-transparent hover:ring-[#3d556d82] ease-in duration-200 px-4 py-1 mt-4 rounded-md text-xs outline-none'>Toggle Unit</button>
               </div>
             </section>
