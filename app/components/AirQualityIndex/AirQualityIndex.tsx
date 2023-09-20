@@ -28,7 +28,9 @@ const AirQualityIndex: React.FC<AirQualityIndexProps> = ({ airQualityData, aqiIn
           ? "Unhealthy"
           : aqiIndexData > 200 && aqiIndexData <= 300
           ? "Very Unhealthy"
-          : "Hazardous"
+          : aqiIndexData > 300 && aqiIndexData <= 500
+          ? "Hazardous"
+          : "🚫 Data Not Available"
         : "🚫 Data Not Available"
     );
   }, [aqiIndexData]);
