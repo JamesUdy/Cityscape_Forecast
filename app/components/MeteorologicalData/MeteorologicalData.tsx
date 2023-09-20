@@ -11,7 +11,6 @@ interface AirQualityIndexProps {
     so2: number;
     pm2_5: number;
     pm10: number;
-    'us-epa-index': number;
   };
 }
 
@@ -55,7 +54,7 @@ const MeteorologicalData: React.FC<MeteorologicalDataProps> = ({ weatherData, AQ
   const insightsData = weatherData.current ? weatherData.current : null;
 
   return (
-    <div className='flex flex-col sm:flex-row gap-32 mt-10 font-mono justify-center'>
+    <div className='flex flex-col sm:flex-row gap-32 mt-10 font-mono justify-center items-center sm:items-start'>
       {insightsData && insightsSunData && <AtmosphericInsights insightsData={ insightsData } insightsSunData={ insightsSunData } />}
       {airQualityData && <AirQualityIndex airQualityData={airQualityData} aqiIndexData={aqiIndexData} />}
     </div>
