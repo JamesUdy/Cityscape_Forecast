@@ -2,6 +2,7 @@ import Location from "./svg/Location";
 import Logo from "./svg/Logo";
 import Search from "./svg/Search";
 
+import ChanceOfRain from "./svg/ChanceOfRain";
 import FeelsLike from "./svg/FeelsLike";
 import Humidity from "./svg/Humidity";
 import Pressure from "./svg/Pressure";
@@ -17,6 +18,7 @@ export {
     Logo,
     Search,
 
+    ChanceOfRain,
     FeelsLike,
     Humidity,
     Pressure,

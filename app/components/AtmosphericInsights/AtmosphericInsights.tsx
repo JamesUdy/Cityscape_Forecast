@@ -2,6 +2,11 @@ import React from 'react';
 
 import { generateInsightsData } from '@/app/constants/constants';
 
+type insightChanceOfRainProps = {
+  daily_chance_of_rain: number;
+};
+
+
 interface AtmosphericInsightsProps {
   insightsData: {
     wind_mph: number;
@@ -15,11 +20,12 @@ interface AtmosphericInsightsProps {
   insightsSunData: {
     sunrise: string;
     sunset: string;
-  }
+  };
+  insightChanceOfRain: insightChanceOfRainProps;
 }
 
-const AtmosphericInsights: React.FC<AtmosphericInsightsProps> = ({ insightsData, insightsSunData }) => {
-  const insights = generateInsightsData(insightsData, insightsSunData);
+const AtmosphericInsights: React.FC<AtmosphericInsightsProps> = ({ insightsData, insightsSunData, insightChanceOfRain }) => {
+  const insights = generateInsightsData(insightsData, insightsSunData, insightChanceOfRain);
 
   return (
     <section className='w-fit lg:w-2/3 xl:w-1/2 flex flex-col items-center'>
