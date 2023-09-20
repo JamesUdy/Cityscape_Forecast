@@ -54,7 +54,7 @@ const MeteorologicalData: React.FC<MeteorologicalDataProps> = ({ weatherData, AQ
   const insightsData = weatherData.current ? weatherData.current : null;
 
   return (
-    <div className='flex flex-col sm:flex-row gap-32 mt-10 font-mono justify-center items-center sm:items-start'>
+    <div className='flex flex-col xl:flex-row gap-16 xl:gap-32 mt-10 font-mono justify-center items-center xl:items-start'>
       {insightsData && insightsSunData && <AtmosphericInsights insightsData={ insightsData } insightsSunData={ insightsSunData } />}
       {airQualityData && <AirQualityIndex airQualityData={airQualityData} aqiIndexData={aqiIndexData} />}
     </div>

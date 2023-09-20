@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { generateInsightsData } from '@/app/constants/constants';
+
 interface AtmosphericInsightsProps {
   insightsData: {
     wind_mph: number;
@@ -17,19 +19,23 @@ interface AtmosphericInsightsProps {
 }
 
 const AtmosphericInsights: React.FC<AtmosphericInsightsProps> = ({ insightsData, insightsSunData }) => {
+  const insights = generateInsightsData(insightsData, insightsSunData);
+
   return (
-    <section className='w-fit sm:w-1/2 flex flex-col items-center'>
+    <section className='w-fit lg:w-2/3 xl:w-1/2 flex flex-col items-center'>
       <span className='text-slate-800 font-semibold text-lg'>🌤️ Atmospheric Insights 🔍</span>
-      <div className='flex flex-wrap gap-6'>
-        <span>Wind Speed: {insightsData.wind_mph} mph</span>
-        <span>Humidity: {insightsData.humidity} %</span>
-        <span>Wind Direction: {insightsData.wind_dir}</span>
-        <span>Sunrise Time: {insightsSunData.sunrise}</span>
-        <span>Sunset Time: {insightsSunData.sunset}</span>
-        <span>UV: {insightsData.uv} uv</span>
-        <span>Pressure: {insightsData.pressure_mb} mb</span>
-        <span>FeelsLike: {insightsData.feelslike_c}°C</span>
-        <span>Visibility: {insightsData.vis_km} km</span>
+      <div className='flex flex-wrap justify-evenly xl:justify-center gap-2 lg:gap-6 mt-6'>
+        {insights.map((insight) => {
+          return (
+            <div className='flex items-center gap-4 bg-[#94A3B8] px-4 py-4 rounded-xl' key={insight.id}>              
+              <div className='flex flex-col'>
+                <span>{insight.featTitle}</span>
+                <span>{insight.featVal}</span>
+              </div>
+              <insight.icon />
+            </div>
+          )
+        })}
       </div>
     </section>
   );
