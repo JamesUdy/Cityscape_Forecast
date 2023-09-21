@@ -8,19 +8,19 @@ import SearchCity from '../SearchCity/SearchCity';
 import WeatherContent from '../WeatherContent/WeatherContent';
 
 interface HomeProps {
-  weatherURLKey: string;
-  airQualityURLKey: string;
+  weatherAPIKey: string;
+  airQualityAPIKey: string;
 }
 
-const Home: React.FC<HomeProps> = ({ weatherURLKey, airQualityURLKey }) => {
+const Home: React.FC<HomeProps> = ({ weatherAPIKey, airQualityAPIKey }) => {
   const [weatherData, setWeatherData] = useState({});
   const [AQIndex, setAQIndex] = useState<number | null>(null);
   const [locationData, setLocationData] = useState("");
   const [error, setError] = useState("");
 
-  const weatherAPI = `https://api.weatherapi.com/v1/forecast.json?key=${weatherURLKey}&q=${locationData}&days=3&aqi=yes&alerts=yes`;
+  const weatherAPI = `https://api.weatherapi.com/v1/forecast.json?key=${weatherAPIKey}&q=${locationData}&days=3&aqi=yes&alerts=yes`;
 
-  const airQualityURL = `https://api.waqi.info/feed/${locationData}/?token=${airQualityURLKey}`;
+  const airQualityURL = `https://api.waqi.info/feed/${locationData}/?token=${airQualityAPIKey}`;
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if(e.key === "Enter") {

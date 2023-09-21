@@ -1,13 +1,11 @@
 import Home from "./components/Home/Home";
 
 const page = () => {
-  const weatherAPIKey = process.env.WEATHER_API_KEY;
-  const airQualityAPIKey = process.env.AIR_QUALITY_API_KEY;
-  
-  const airQualityURLKey = `${airQualityAPIKey}`;
-  const weatherURLKey = `${weatherAPIKey}`;
+  const weatherAPIKey = String(process.env.WEATHER_API_KEY);
+  const airQualityAPIKey = String(process.env.AIR_QUALITY_API_KEY);
+
   return (
-    <Home weatherURLKey={weatherURLKey} airQualityURLKey={airQualityURLKey} />
+    <Home weatherAPIKey={weatherAPIKey} airQualityAPIKey={airQualityAPIKey} />
   )
 };
 
