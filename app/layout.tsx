@@ -16,7 +16,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>        
+      <head>  
+        <meta name="google-site-verification" content="APnAHatyt388b1ozRCJrW4PRK9EBLqb8X2ErT_IO2DQ" />      
         <meta property="og:url" content="https://cityscape-forecast.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Cityscape Forecast | Urban Weather Unveiled" />
