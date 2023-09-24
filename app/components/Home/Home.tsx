@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 
-import Logo from '../WebLogo/WebLogo';
-import { Github } from '@/app/assets';
 import SearchCity from '../SearchCity/SearchCity';
 
 import WeatherContent from '../WeatherContent/WeatherContent';
+
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 interface HomeProps {
   weatherAPIKey: string;
@@ -47,19 +48,12 @@ const Home: React.FC<HomeProps> = ({ weatherAPIKey, airQualityAPIKey }) => {
   
   return (
     <section className='flex flex-col justify-between h-screen'>
-      <header className='px-4 w360:px-10 py-6 flex justify-between'>
-        <Logo />
-        <Github />
-      </header>
+      <Header />
       <main className="px-4 w360:px-10 flex flex-col">
         <SearchCity handleSearch={handleSearch} setLocationData={setLocationData} />
         <WeatherContent weatherData={weatherData} airQualityIndexData={AQIndex} error={error} />
       </main>
-      <footer className='w-full text-white bg-[#001d3deb] backdrop-blur-3xl py-2'>
-        <div className='flex items-center justify-center'>
-          <span className='font-sans text-xs font-light'>&copy; 2023 CityscapeForecast. All Rights Reserved.</span>
-        </div>
-      </footer>
+      <Footer />
     </section>
   )
 };
