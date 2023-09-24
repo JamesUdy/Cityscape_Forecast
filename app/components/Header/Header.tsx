@@ -7,9 +7,9 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className='px-4 w360:px-10 py-6 flex justify-between'>
+    <header className='px-4 w360:px-10 py-6 flex justify-center sm:justify-between'>
         <Logo />
-        <Link href="https://github.com/JamesUdy/Cityscape_Forecast" target='_blank' rel='noopener noreferrer'>
+        <Link href="https://github.com/JamesUdy/Cityscape_Forecast" target='_blank' rel='noopener noreferrer' className='hidden sm:flex'>
         <Github />
         </Link>
   </header>
