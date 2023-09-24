@@ -53,8 +53,10 @@ const Home: React.FC<HomeProps> = ({ weatherAPIKey, airQualityAPIKey }) => {
         <SearchCity handleSearch={handleSearch} setLocationData={setLocationData} />
         <WeatherContent weatherData={weatherData} airQualityIndexData={AQIndex} error={error} />
       </main>
-      <footer className='w-full'>
-        <span> &copy; 2023 YourWebsiteName. All Rights Reserved.</span>
+      <footer className='w-full text-white bg-[#001d3deb] backdrop-blur-3xl py-2'>
+        <div className='flex items-center justify-center'>
+          <span className='font-sans text-xs font-light'>&copy; 2023 CityscapeForecast. All Rights Reserved.</span>
+        </div>
       </footer>
     </section>
   )
