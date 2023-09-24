@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 
 import Logo from '../WebLogo/WebLogo';
+import { Github } from '@/app/assets';
 import SearchCity from '../SearchCity/SearchCity';
 
 import WeatherContent from '../WeatherContent/WeatherContent';
@@ -46,8 +47,9 @@ const Home: React.FC<HomeProps> = ({ weatherAPIKey, airQualityAPIKey }) => {
   
   return (
     <section className='flex flex-col justify-between h-screen'>
-      <header className='px-4 w360:px-10 py-6'>
+      <header className='px-4 w360:px-10 py-6 flex justify-between'>
         <Logo />
+        <Github />
       </header>
       <main className="px-4 w360:px-10 flex flex-col">
         <SearchCity handleSearch={handleSearch} setLocationData={setLocationData} />

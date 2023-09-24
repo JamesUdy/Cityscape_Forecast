@@ -1,6 +1,9 @@
-import Location from "./svg/Location";
 import Logo from "./svg/Logo";
+import Github from "./svg/Github";
+
 import Search from "./svg/Search";
+
+import Location from "./svg/Location";
 
 import ChanceOfRain from "./svg/ChanceOfRain";
 import FeelsLike from "./svg/FeelsLike";
@@ -14,9 +17,12 @@ import WindDirection from "./svg/WindDirection";
 import WindSpeed from "./svg/WindSpeed";
 
 export {
-    Location,
     Logo,
+    Github,
+
     Search,
+
+    Location,
 
     ChanceOfRain,
     FeelsLike,
