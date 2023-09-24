@@ -45,11 +45,18 @@ const Home: React.FC<HomeProps> = ({ weatherAPIKey, airQualityAPIKey }) => {
   };
   
   return (
-    <main className="px-4 w360:px-10 py-6 flex flex-col space-y-8">
-      <Logo />
-      <SearchCity handleSearch={handleSearch} setLocationData={setLocationData} />
-      <WeatherContent weatherData={weatherData} airQualityIndexData={AQIndex} error={error} />
-    </main>
+    <section className='flex flex-col justify-between h-screen'>
+      <header className='px-4 w360:px-10 py-6'>
+        <Logo />
+      </header>
+      <main className="px-4 w360:px-10 flex flex-col">
+        <SearchCity handleSearch={handleSearch} setLocationData={setLocationData} />
+        <WeatherContent weatherData={weatherData} airQualityIndexData={AQIndex} error={error} />
+      </main>
+      <footer className='w-full'>
+        <span> &copy; 2023 YourWebsiteName. All Rights Reserved.</span>
+      </footer>
+    </section>
   )
 };
 
