@@ -30,7 +30,7 @@ const WeatherContent: React.FC<WeatherContentProps> = ({weatherData, airQualityI
         );
     } else if (error !== "") {
       return (
-        <section className='text-[#001F3F] mx-auto w-full sm:w-2/3 lg:w-1/2 xl:w-2/4 pt-8 py-0 sm:pt-0 sm:py-24 flex flex-col space-y-4 items-center'>
+        <section className='text-[#001F3F] mx-auto w-full sm:w-2/3 lg:w-1/2 xl:w-2/4 pt-8 py-0 sm:pt-0 sm:my-24 flex flex-col space-y-4 items-center'>
             <p className='text-center'>🌦️ Location not found. Please double-check and provide more information for accurate weather data. 🌍</p>
         </section>
       );
