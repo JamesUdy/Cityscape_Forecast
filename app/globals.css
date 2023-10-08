@@ -17,3 +17,19 @@ body {
   background: rgb(255,218,185);
   background: radial-gradient(circle, rgba(255,218,185,1) 0%, rgba(176,224,230,1) 100%);
 }
+
+body::-webkit-scrollbar {
+  width: 0.56rem;
+  border-radius: 0.56rem;
+  background: rgba(176,224,230,1);
+}
+
+body::-webkit-scrollbar-track {
+  width: 0.56rem;
+  border-radius: 0.56rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 0.56rem;
+  background: #001F3F;
+}
