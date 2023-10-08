@@ -36,6 +36,7 @@ const Home: React.FC<HomeProps> = ({ weatherAPIKey, airQualityAPIKey }) => {
           const data1 = await res1.json();
           const data2 = await res2.json();
           const aqiValue = data2.data?.aqi ?? null;
+          
           setWeatherData(data1);
           setAQIndex(aqiValue);
           setLocationData("")

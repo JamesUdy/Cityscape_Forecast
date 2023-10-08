@@ -19,7 +19,6 @@ interface MeteorologicalDataProps {
     forecast?: {
       forecastday: Array<{
         day?: {
-          air_quality?: AirQualityIndexProps['airQualityData'];
           'daily_chance_of_rain'?: number | string | null;
         };
         astro: {
@@ -36,6 +35,7 @@ interface MeteorologicalDataProps {
       feelslike_c: number;
       vis_km: number;
       uv: number;
+      air_quality?: AirQualityIndexProps['airQualityData'];
     };
   };
   AQIndex: number | null | undefined;
@@ -73,7 +73,7 @@ const MeteorologicalData: React.FC<MeteorologicalDataProps> = ({ weatherData, AQ
   if (weatherData.forecast?.forecastday?.length) {
     const firstForecastDay = weatherData.forecast.forecastday[0];
     insightChanceOfRain = firstForecastDay.day?.daily_chance_of_rain;;
-    airQualityData = firstForecastDay.day?.air_quality;
+    airQualityData = weatherData.current?.air_quality;
     insightsSunData = firstForecastDay.astro;
     aqiIndexData = AQIndex !== undefined ? AQIndex : null;
   }
@@ -82,6 +82,8 @@ const MeteorologicalData: React.FC<MeteorologicalDataProps> = ({ weatherData, AQ
   const buttonText = isShown ? "Simplify View 🌞" : "Expand View 🌈";
 
   const insightComponent = isShown ? "block" : "hidden";
+
+  console.log(airQualityData)
 
   return (
     <div className='flex flex-col items-center pt-10'>
